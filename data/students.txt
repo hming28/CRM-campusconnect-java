@@ -1,0 +1,2 @@
+2600001|Lee Hao Ming|Test@123|leehm-wp26@student.tarc.edu.my|Diploma in Accounting|false
+2600002|GOH JIAN HAO|Test@123|gohjh-wp26@student.tarc.edu.my|Bachelor of Accounting|false

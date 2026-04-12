@@ -1,0 +1,47 @@
+1. Fundamental Concepts of Object-Orientation
+Topics: You will learn the four basic principles of Object-Oriented Design (OOD): Encapsulation (hiding data), Inheritance (reusing code through hierarchies), Polymorphism (allowing methods to behave differently), and Abstraction (hiding internal implementation)
+.
+Application Example: Designing a Banking System where a general "Account" class is inherited by specific "Savings" and "Checking" accounts, each with its own interest calculation logic
+.
+2. Java Programming Fundamentals & I/O
+Topics: This includes mastering Java syntax, data types (like 16-bit Unicode characters), and console I/O using the Scanner class for user input and printf for formatted output
+.
+Application Example: A program that calculates a user's age in days and seconds based on an input age in years
+.
+3. Methods and Exception Handling
+Topics: You will learn to define and invoke methods, use method overloading (multiple methods with the same name), and handle runtime errors through try-catch blocks
+.
+Application Example: Implementing a Credit Card Validation program that uses methods to check the validity of an 8-digit card number and catches invalid input errors
+.
+4. Arrays
+Topics: This covers declaring and creating arrays, using the foreach loop for easy traversal, and the System.arraycopy method for duplicating data
+.
+Application Example: A Smart Parking System that uses a polymorphic array to manage and display registration numbers for different vehicles (Cars and Motorcycles) parked in various spaces
+.
+5. Objects and Classes
+Topics: You will learn to create blueprints (classes) for real-world entities, utilize constructors for initialization, and manage data access through visibility modifiers (public, private, protected)
+.
+Application Example: A Student Information System where a Student class encapsulates data such as ID, name, and quiz scores, providing methods to calculate average marks
+.
+6. String and Character Processing
+Topics: The course treats strings as objects. You will use the String class for fixed text, the Character class for single characters, and StringBuilder or StringBuffer for flexible, mutable text
+.
+Application Example: A Palindrome Checker or a program that modifies strings by converting them to uppercase and replacing specific characters (like vowels) with a placeholder
+.
+7. Inheritance and Polymorphism
+Topics: This includes extending classes, using the super keyword to access parent class members, and method overriding
+. Dynamic binding allows the system to determine which method to call at runtime
+.
+Application Example: A Hospital Payment System where a superclass PatientBill is extended by InpatientBill and OutpatientBill to calculate different types of charges
+.
+8. Abstract Classes and Interfaces
+Topics: You will use abstract classes for general templates that cannot be instantiated and interfaces to specify shared behavior across unrelated classes
+.
+Application Example: Using a Comparable interface to allow a collection of Rectangle objects to be sorted based on their area
+.
+9. OO Design & Patterns
+Topics: This covers identifying class relationships such as Association, Aggregation, and Composition
+. You will also explore design patterns like the Singleton Pattern, which ensures a class has only one unique instance
+.
+Application Example: An Invoice Generation system that models relationships between Customer, Invoice, and Product entities
+.
