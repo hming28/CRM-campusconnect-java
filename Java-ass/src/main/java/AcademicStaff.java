@@ -1,13 +1,19 @@
-/**
- * Specialised staff for Academic-related support tickets.
- * Demonstrates multi-level INHERITANCE: AcademicStaff → Staff → User
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-public class AcademicStaff extends Staff {
+package com.mycompany.main;
 
+public class AcademicStaff extends Staff {
+    
+    //constructor
+    public AcademicStaff(){}
     public AcademicStaff(String staffId, String name, String password) {
         super(staffId, name, password, "Academic");
     }
 
     @Override
-    public String getRole() { return "Academic Staff"; }
+    public String getRole() {
+        return "Academic Staff";
+    }
 }

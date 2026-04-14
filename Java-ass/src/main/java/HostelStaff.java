@@ -1,13 +1,19 @@
-/**
- * Specialised staff for Hostel-related support tickets.
- * Demonstrates multi-level INHERITANCE: HostelStaff → Staff → User
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package com.mycompany.main;
+
 public class HostelStaff extends Staff {
 
+    //constructor
+    public HostelStaff() {}
     public HostelStaff(String staffId, String name, String password) {
         super(staffId, name, password, "Hostel");
     }
 
     @Override
-    public String getRole() { return "Hostel Staff"; }
+    public String getRole() {
+        return "Hostel Staff";
+    }
 }

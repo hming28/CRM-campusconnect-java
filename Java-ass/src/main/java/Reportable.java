@@ -1,13 +1,9 @@
-/**
- * Interface that marks a class as capable of producing
- * a one-line text summary of itself.
- *
- * Implemented by: Student, Staff
- * Used by: ManagerModule monthly report
- *
- * Demonstrates Java INTERFACE usage to establish a
- * weak "can-do" relationship between unrelated classes.
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
+package com.mycompany.main;
+
 public interface Reportable {
     /**
      * Returns a single-line summary suitable for reports and listings.

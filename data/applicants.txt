@@ -1,2 +1,7 @@
-Lee Hao Ming|hm@gmail.com|Temp@123|May/June 2026|Diploma|Diploma in Accounting|SPM|APPROVED
-GOH JIAN HAO|gjh@gmail.com|Temp@1234|Sept/Nov 2026|Bachelor|Bachelor of Accounting|STPM|APPROVED
+Chai Xiang Le|chaixiangle@gmail.com|Chaixl123|May/June 2026|Diploma|Diploma in Accounting|SPM|APPROVED
+Lam Fu Kai|lamfukai@gmail.com|Lamfk123|Sept/Nov 2026|Bachelor|Bachelor of Banking and Finance|STPM|APPROVED
+Goh Jian Hao|goh@gmail.com|GohJianHao123|May/June 2026|Diploma|Diploma in Software Engineering|SPM|APPROVED
+Low Li Ping|lowliping24@gmail.com|Qwer1234|May/June 2026|Bachelor|Bachelor of Marketing|Foundation|APPROVED
+Lee Hao Ming|leehm123@gmail.com|Hm123456|Sept/Nov 2026|Diploma|Diploma in Software Engineering|SPM|APPROVED
+Jason Tan|jason123@gmail.com|Qwer1234|Sept/Nov 2026|Bachelor|Bachelor of Early Childhood Education|Diploma|PENDING
+Lim Chia Xi|lim111@gmail.com|Lim112233|Sept/Nov 2026|Bachelor|Bachelor of Business Administration|STPM|PENDING

@@ -1,3 +1,9 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.main;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -148,9 +154,11 @@ public class TicketStore {
             Map<String, String> map = new HashMap<>();
             for (String line : block.split("\n")) {
                 line = line.trim();
-                if (line.isEmpty()) continue;
+                if (line.isEmpty()) 
+                    continue;
                 int idx = line.indexOf(':');
-                if (idx < 0) continue;
+                if (idx < 0) 
+                    continue;
                 String key = line.substring(0, idx).trim();
                 String val = line.substring(idx + 1).trim();
                 map.put(key, val);
@@ -168,17 +176,25 @@ public class TicketStore {
     private static Ticket buildTicketFromParts(String[] p) {
         try {
             Ticket t = new Ticket(p[0], p[1], p[2], p[3], p[4]);
-            if (!p[5].isEmpty())  t.setDescription(p[5]);
-            if (!p[6].isEmpty())  t.setStatus(p[6]);
-            if (!p[7].isEmpty())  t.setHandledBy(p[7]);
-            if (!p[8].isEmpty())  t.setResponse(p[8]);
+            if (!p[5].isEmpty())
+                t.setDescription(p[5]);
+            if (!p[6].isEmpty())
+                t.setStatus(p[6]);
+            if (!p[7].isEmpty())
+                t.setHandledBy(p[7]);
+            if (!p[8].isEmpty())
+                t.setResponse(p[8]);
             if (!p[9].isEmpty() && !"null".equalsIgnoreCase(p[9].trim())) {
                 t.setReassignmentReason(p[9]);
             }
-            if (!p[10].isEmpty()) t.setRating(Integer.parseInt(p[10]));
-            if (!p[11].isEmpty()) t.setFeedback(p[11]);
-            if (!p[12].isEmpty()) t.setCreatedDate(LocalDate.parse(p[12]));
-            if (!p[13].isEmpty()) t.setResolvedDate(LocalDate.parse(p[13]));
+            if (!p[10].isEmpty()) 
+                t.setRating(Integer.parseInt(p[10]));
+            if (!p[11].isEmpty()) 
+                t.setFeedback(p[11]);
+            if (!p[12].isEmpty()) 
+                t.setCreatedDate(LocalDate.parse(p[12]));
+            if (!p[13].isEmpty()) 
+                t.setResolvedDate(LocalDate.parse(p[13]));
             return t;
         } catch (Exception e) {
             return null;
@@ -198,24 +214,38 @@ public class TicketStore {
                     map.getOrDefault("Category", ""),
                     map.getOrDefault("Priority", "")
             );
+            
             if (map.containsKey("Description"))
                 t.setDescription(emptyToNull(map.get("Description")));
+            
             String st = map.get("Status");
-            if (st != null && !st.trim().isEmpty()) t.setStatus(st.trim());
+            if (st != null && !st.trim().isEmpty()) 
+                t.setStatus(st.trim());
+            
             if (map.containsKey("Handled by"))
                 t.setHandledBy(emptyToNull(map.get("Handled by")));
+            
             if (map.containsKey("Response"))
                 t.setResponse(emptyToNull(map.get("Response")));
+            
             if (map.containsKey("Reassignment"))
                 t.setReassignmentReason(emptyToNull(map.get("Reassignment")));
+            
             String ratingStr = map.getOrDefault("Rating", "").trim();
-            if (!ratingStr.isEmpty()) t.setRating(Integer.parseInt(ratingStr));
+            if (!ratingStr.isEmpty()) 
+                t.setRating(Integer.parseInt(ratingStr));
+            
             if (map.containsKey("Feedback"))
                 t.setFeedback(emptyToNull(map.get("Feedback")));
+            
             String cd = map.getOrDefault("Created date", "").trim();
-            if (!cd.isEmpty()) t.setCreatedDate(LocalDate.parse(cd));
+            if (!cd.isEmpty())
+                t.setCreatedDate(LocalDate.parse(cd));
+            
             String rd = map.getOrDefault("Resolved date", "").trim();
-            if (!rd.isEmpty()) t.setResolvedDate(LocalDate.parse(rd));
+            if (!rd.isEmpty())
+                t.setResolvedDate(LocalDate.parse(rd));
+            
             return t;
         } catch (Exception e) {
             return null;
@@ -223,15 +253,19 @@ public class TicketStore {
     }
 
     private static String emptyToNull(String s) {
-        if (s == null) return null;
+        if (s == null) 
+            return null;
         String t = s.trim();
-        if (t.isEmpty() || "null".equalsIgnoreCase(t)) return null;
+        if (t.isEmpty() || "null".equalsIgnoreCase(t)) 
+            return null;
         return s;
     }
 
     private static String safe(String s) {
-        if (s == null) return "";
-        if ("null".equalsIgnoreCase(s.trim())) return "";
+        if (s == null) 
+            return "";
+        if ("null".equalsIgnoreCase(s.trim())) 
+            return "";
         return s;
     }
 }

@@ -1,34 +1,28 @@
-/**
- * Represents a system manager in the CampusConnect system.
- *
- * Demonstrates:
- *  - INHERITANCE    : extends User (inherits id, name, password)
- *  - ENCAPSULATION  : all fields private/protected, accessed via methods
- *  - POLYMORPHISM   : overrides getRole() and displayProfile() from User
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
+package com.mycompany.main;
+
 public class Manager extends User {
 
+    public Manager() {}
     public Manager(String managerId, String name, String password) {
         super(managerId, name, password);
     }
 
-    // ---------------------------------------------------------------
-    // POLYMORPHISM — overrides User's abstract methods
-    // ---------------------------------------------------------------
     @Override
     public String getRole() { return "Manager"; }
 
     @Override
     public void displayProfile() {
-        System.out.println("--------- MY PROFILE ---------");
-        System.out.println("Role      : " + getRole());
-        System.out.println("Name      : " + name);
-        System.out.println("Manager ID: " + id);
-        System.out.println("--------------------------------\n");
+        // Polymorphism: profile card display
+        String[][] fields = {
+            { "MANAGER ID", id },
+            { "NAME",       name },
+            { "ROLE",       getRole() }
+        };
+        printProfileCard(fields);
     }
 
-    // ---------------------------------------------------------------
-    // GETTER (backward-compatible alias)
-    // ---------------------------------------------------------------
     public String getManagerId() { return getId(); }
 }

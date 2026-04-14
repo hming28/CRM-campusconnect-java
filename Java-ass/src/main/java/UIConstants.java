@@ -6,9 +6,8 @@
  *
  * W  = wide  border  (==) used for section headers / outer frames
  * D  = dash  divider (--) used for sub-section separators
- * WM = wide  border for ManagerModule (wider tables)
- * DM = dash  divider for ManagerModule
  */
+package com.mycompany.main;
 
 public interface UIConstants {
 
@@ -16,7 +15,6 @@ public interface UIConstants {
     // Standard width  — used by Login / Staff / Applicant modules
     // Calculated to contain the widest table row they produce:
     //   | ID       | Title                  | Handled By             | Priority | Category       | Status                   |
-    //   2+10+3+24+3+24+3+10+3+16+3+26+2 = ~104  -> round to 108
     // ---------------------------------------------------------------
     String W = "============================================================================================================";
     String D = "------------------------------------------------------------------------------------------------------------";

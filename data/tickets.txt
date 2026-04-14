@@ -1,0 +1,85 @@
+Ticket ID     : T0001
+Student ID    : 2600001
+Title         : Wifi issue
+Category      : IT
+Priority      : High
+Description   : arena wifi cannot use
+Status        : Closed
+Handled by    : ST2001
+Staff name    : Adam Lee
+Response      : i already solve this problem
+Reassignment  : 
+Rating        : 3
+Feedback      : thank you
+Created date  : 2026-04-12
+Resolved date : 2026-04-12
+--------------------------------
+
+Ticket ID     : T0002
+Student ID    : 2600001
+Title         : lecture problem
+Category      : Academic
+Priority      : High
+Description   : Lecturer only read the slide in the lecture hall
+Status        : Resolved
+Handled by    : ST2001
+Staff name    : Adam Lee
+Response      : solved
+Reassignment  : 
+Rating        : 
+Feedback      : 
+Created date  : 2026-04-12
+Resolved date : 2026-04-13
+--------------------------------
+
+Ticket ID     : T0003
+Student ID    : 2600003
+Title         : wifi problem
+Category      : IT
+Priority      : High
+Description   : very slow
+Status        : Closed
+Handled by    : ST2001
+Staff name    : Adam Lee
+Response      : Solved, kindly try again.
+Reassignment  : 
+Rating        : 4
+Feedback      : More stable already
+Created date  : 2026-04-13
+Resolved date : 2026-04-14
+--------------------------------
+
+Ticket ID     : T0004
+Student ID    : 2600004
+Title         : Wifi Problem
+Category      : IT
+Priority      : Medium
+Description   : Inconsistent wifi at CITC
+Status        : Closed
+Handled by    : ST2004
+Staff name    : Aisha Rahman
+Response      : We removed facility that cause interference, kindly check again. Thanks.
+Reassignment  : 
+Rating        : 5
+Feedback      : Issue resolved, nice!
+Created date  : 2026-04-14
+Resolved date : 2026-04-14
+--------------------------------
+
+Ticket ID     : T0005
+Student ID    : 2600004
+Title         : Broken gym facility
+Category      : Facility
+Priority      : Medium
+Description   : One of the facility has broken in GymRoom XXX
+Status        : Reassignment Requested
+Handled by    : ST2004
+Staff name    : Aisha Rahman
+Response      : 
+Reassignment  : On leave
+Rating        : 
+Feedback      : 
+Created date  : 2026-04-14
+Resolved date : 
+--------------------------------
+

@@ -1,3 +1,8 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+package com.mycompany.main;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -7,17 +12,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ApplicantModule {
+/**
+ * Handles all applicant-facing operations: registration and status check.
+ * Implements UIConstants so divider strings are inherited from one source.
+ */
+public class ApplicantModule implements UIConstants {
 
     public static ArrayList<Applicant> applicantList = new ArrayList<>();
 
-    // Data folder sits next to the source files: Java-ass/data/applicants.txt
     private static final String DATA_DIR  = "data";
     private static final String FILE_PATH = DATA_DIR + File.separator + "applicants.txt";
 
-    // ---------------------------------------------------------------
-    // DIPLOMA PROGRAMMES
-    // ---------------------------------------------------------------
     private static final String[] DIPLOMA_PROGRAMMES = {
         "Diploma in Accounting",
         "Diploma in Banking and Finance",
@@ -29,9 +34,6 @@ public class ApplicantModule {
         "Diploma in Software Engineering"
     };
 
-    // ---------------------------------------------------------------
-    // BACHELOR PROGRAMMES
-    // ---------------------------------------------------------------
     private static final String[] BACHELOR_PROGRAMMES = {
         "Bachelor of Accounting",
         "Bachelor of Banking and Finance",
@@ -43,76 +45,74 @@ public class ApplicantModule {
         "Bachelor of Software Engineering"
     };
 
-    // ---------------------------------------------------------------
-    // ENTRY QUALIFICATIONS
-    // SPM             → Diploma only
-    // STPM/Foundation/Diploma → Bachelor only
-    // ---------------------------------------------------------------
     private static final String[] QUALIFICATIONS = {
         "SPM", "STPM", "Foundation", "Diploma"
     };
 
     // ---------------------------------------------------------------
-    // MAIN REGISTRATION METHOD
+    // REGISTRATION  
     // ---------------------------------------------------------------
-    public static void register(Scanner scanner) {
-        System.out.println("\n========== APPLICANT REGISTRATION ==========");
+    public static void register(Scanner scanner) { 
+        System.out.println("\n" + W);
+        System.out.println("                                           APPLICANT REGISTRATION");
+        System.out.println(W);
+        System.out.println("  (Enter 0 at any prompt to return to the main menu)");
 
-        // Full Name — retry until valid
+        // --- Full Name ---
         String fullName;
         while (true) {
-            System.out.print("Full Name: ");
+            System.out.print("  Full Name       : ");
             fullName = scanner.nextLine().trim();
+            if (fullName.equals("0")) { System.out.println("  Returning to main menu.\n"); return; }
             if (Validator.isValidName(fullName)) break;
             Validator.printNameError();
         }
 
-        // Personal Email — retry until valid and already registered not
+        // --- Personal Email ---
         String email;
         while (true) {
-            System.out.print("Personal Email: ");
+            System.out.print("  Personal Email  : ");
             email = scanner.nextLine().trim().toLowerCase();
-            if (!Validator.isValidEmail(email)) {
-                Validator.printEmailError();
-                continue;
-            }
+            if (email.equals("0")) { System.out.println("  Returning to main menu.\n"); return; }
+            if (!Validator.isValidEmail(email)) { Validator.printEmailError(); continue; }
             if (isEmailUnavailableForNewApplication(email)) {
-                System.out.println("  X This email already has a pending or approved application.");
+                System.out.println("  [X] This email already has a pending or approved application.");
                 continue;
             }
             break;
         }
         final String regEmail = email;
 
-        // Password — retry until valid
+        // --- Password ---
         String password;
         while (true) {
-            System.out.print("Create Password: ");
+            System.out.print("  Create Password : ");
             password = scanner.nextLine().trim();
+            if (password.equals("0")) { System.out.println("  Returning to main menu.\n"); return; }
             if (Validator.isValidPassword(password)) {
-                System.out.println("Successful Register applicant account.");
+                System.out.println("  Applicant account registered successfully.");
                 break;
             }
             Validator.printPasswordError();
         }
 
-        // Intake Selection
+        // --- Intake ---
         String intake = selectIntake(scanner);
         if (intake == null) return;
 
-        // Entry Qualification — determines level automatically
+        // --- Qualification ---
         String qualification = selectQualification(scanner);
         if (qualification == null) return;
 
-        // Level is auto-determined from qualification (no manual selection)
+        // --- Level (auto) ---
         String level = determineLevelFromQualification(qualification);
-        System.out.println("Programme Level : " + level + " (based on your qualification)");
+        System.out.printf("  Programme Level : %s (based on your qualification)%n", level);
 
-        // Programme Selection
+        // --- Programme ---
         String programme = selectProgramme(scanner, level);
         if (programme == null) return;
 
-        // Rejected applicants may re-apply with the same email — remove old rejected row first
+        // Remove old rejected record for same email
         applicantList.removeIf(a -> a.getPersonalEmail().equalsIgnoreCase(regEmail)
                 && "REJECTED".equalsIgnoreCase(a.getStatus()));
 
@@ -121,20 +121,19 @@ public class ApplicantModule {
         applicantList.add(applicant);
         saveToFile();
 
-        System.out.println("--------------------------------------------");
-        System.out.println("Application Submitted Successfully!");
-        System.out.println("Application Status: PENDING APPROVAL");
-        System.out.println("Please wait for management review.");
-        System.out.println("--------------------------------------------\n");
+        System.out.println("\n" + W);
+        System.out.println("                                    APPLICATION SUBMITTED SUCCESSFULLY!");
+        System.out.println(W);
+        System.out.printf("  %-20s : %s%n", "Application Status", "PENDING APPROVAL");
+        System.out.println("  Please wait for management review.");
+        System.out.println(W + "\n");
     }
 
     // ---------------------------------------------------------------
     // FILE PERSISTENCE — SAVE
-    // Writes every applicant to data/applicants.txt, one per line.
-    // Format:  name|email|password|intake|level|programme|qualification|status
     // ---------------------------------------------------------------
     public static void saveToFile() {
-        new File(DATA_DIR).mkdirs(); // create data/ folder if it doesn't exist yet
+        new File(DATA_DIR).mkdirs();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
             for (Applicant a : applicantList) {
                 writer.write(
@@ -150,14 +149,12 @@ public class ApplicantModule {
                 writer.newLine();
             }
         } catch (IOException e) {
-            System.out.println("  [Warning] Could not save applicants: " + e.getMessage());
+            System.out.println("  [X] Could not save applicants: " + e.getMessage());
         }
     }
 
     // ---------------------------------------------------------------
     // FILE PERSISTENCE — LOAD
-    // Reads data/applicants.txt and rebuilds the applicantList.
-    // Safe to call even if the file does not exist yet.
     // ---------------------------------------------------------------
     public static void loadFromFile() {
         applicantList.clear();
@@ -171,79 +168,69 @@ public class ApplicantModule {
                 String[] parts = line.split("\\|", -1);
                 if (parts.length < 8) continue;
                 Applicant a = new Applicant(
-                    parts[0], // fullName
-                    parts[1], // email
-                    parts[2], // password
-                    parts[3], // intake
-                    parts[4], // level
-                    parts[5], // programme
-                    parts[6]  // entryQualification
+                    parts[0], parts[1], parts[2],
+                    parts[3], parts[4], parts[5], parts[6]
                 );
                 a.setStatus(parts[7]);
                 applicantList.add(a);
             }
         } catch (java.io.FileNotFoundException ignored) {
-            // data/applicants.txt does not exist yet — will be created on first registration
         } catch (IOException e) {
-            System.out.println("  [Warning] Could not load applicants: " + e.getMessage());
+            System.out.println("  [X] Could not load applicants: " + e.getMessage());
         }
     }
 
     // ---------------------------------------------------------------
-    // INTAKE SELECTION — retry until valid
+    // INTAKE SELECTION  (0 = back to main menu)
     // ---------------------------------------------------------------
     private static String selectIntake(Scanner scanner) {
+        System.out.println("\n" + D);
+        System.out.println("  SELECT INTAKE  (0 = back to main menu)");
+        System.out.println(D);
+        System.out.println("  1. May/June 2026");
+        System.out.println("  2. Sept/Nov 2026");
+        System.out.println(D);
         while (true) {
-            System.out.println("\nSelect Intake:");
-            System.out.println("1. May/June 2026");
-            System.out.println("2. Sept/Nov 2026");
-            System.out.print("Choice: ");
+            System.out.print(">> Choice: ");
             String choice = scanner.nextLine().trim();
             switch (choice) {
+                case "0": System.out.println("  Returning to main menu.\n"); return null;
                 case "1": return "May/June 2026";
                 case "2": return "Sept/Nov 2026";
-                default:  System.out.println("  X Invalid choice. Please enter 1 or 2.");
+                default:  System.out.println("  [X] Invalid choice. Please select 1 to 2 only.");
             }
         }
     }
 
-    // ---------------------------------------------------------------
-    // LEVEL AUTO-DETERMINATION FROM QUALIFICATION
-    // SPM → Diploma  |  STPM / Foundation / Diploma → Bachelor
-    // ---------------------------------------------------------------
     private static String determineLevelFromQualification(String qualification) {
-        if ("SPM".equalsIgnoreCase(qualification)) return "Diploma";
-        return "Bachelor";
+        return "SPM".equalsIgnoreCase(qualification) ? "Diploma" : "Bachelor";
     }
 
     // ---------------------------------------------------------------
-    // PROGRAMME SELECTION — retry until valid
+    // PROGRAMME SELECTION  (0 = back)
     // ---------------------------------------------------------------
     private static String selectProgramme(Scanner scanner, String level) {
         String[] programmes = level.equals("Diploma") ? DIPLOMA_PROGRAMMES : BACHELOR_PROGRAMMES;
+        System.out.println("\n" + D);
+        System.out.printf("  SELECT %s PROGRAMME  (0 = back to main menu)%n", level.toUpperCase());
+        System.out.println(D);
+        for (int i = 0; i < programmes.length; i++) {
+            System.out.printf("  %d. %s%n", i + 1, programmes[i]);
+        }
+        System.out.println(D);
         while (true) {
-            System.out.println("\nSelect Programme:");
-            for (int i = 0; i < programmes.length; i++) {
-                System.out.println((i + 1) + ". " + programmes[i]);
-            }
-            System.out.print("Choice: ");
+            System.out.print(">> Choice: ");
+            String raw = scanner.nextLine().trim();
+            if (raw.equals("0")) { System.out.println("  Returning to main menu.\n"); return null; }
             try {
-                int choice = Integer.parseInt(scanner.nextLine().trim());
-                if (choice >= 1 && choice <= programmes.length) {
-                    return programmes[choice - 1];
-                }
-            } catch (NumberFormatException e) {
-                // fall through to error
-            }
-            System.out.println("  X Invalid choice. Please enter a number between 1 and " + programmes.length + ".");
+                int choice = Integer.parseInt(raw);
+                if (choice >= 1 && choice <= programmes.length) return programmes[choice - 1];
+            } catch (NumberFormatException ignored) {}
+            System.out.println("  [X] Invalid choice. Please enter a number between 1 and "
+                    + programmes.length + " only.");
         }
     }
 
-    // ---------------------------------------------------------------
-    // DUPLICATE EMAIL GUARD
-    // Same email allowed again only after manager rejection (REJECTED).
-    // PENDING / APPROVED still block a new registration.
-    // ---------------------------------------------------------------
     private static boolean isEmailUnavailableForNewApplication(String email) {
         for (Applicant a : applicantList) {
             if (!a.getPersonalEmail().equalsIgnoreCase(email)) continue;
@@ -255,50 +242,55 @@ public class ApplicantModule {
 
     // ---------------------------------------------------------------
     // CHECK APPLICATION STATUS
-    // Applicant enters their personal email to see their status.
-    // If APPROVED, their generated student login credentials are shown.
     // ---------------------------------------------------------------
     public static void checkApplicationStatus(Scanner scanner) {
-        System.out.println("\n===== CHECK APPLICATION STATUS =====");
-        System.out.print("Enter your registered email: ");
+        System.out.println("\n" + W);
+        System.out.println("                                          CHECK APPLICATION STATUS");
+        System.out.println(W);
+        System.out.print("  Registered Email : ");
         String email = scanner.nextLine().trim().toLowerCase();
+        System.out.print("  Password         : ");
+        String password = scanner.nextLine().trim();
 
         Applicant found = null;
         for (int i = applicantList.size() - 1; i >= 0; i--) {
             Applicant a = applicantList.get(i);
-            if (a.getPersonalEmail().equalsIgnoreCase(email)) {
+            if (a.getPersonalEmail().equalsIgnoreCase(email)
+                    && a.getPassword().equals(password)) {
                 found = a;
                 break;
             }
         }
 
         if (found == null) {
-            System.out.println("  X No application found for this email.\n");
+            System.out.println("  [X] Invalid email or password.\n");
             return;
         }
 
-        System.out.println("\n------- APPLICATION STATUS -------");
-        System.out.println("Name      : " + found.getFullName());
-        System.out.println("Programme : " + found.getProgramme());
-        System.out.println("Intake    : " + found.getIntake());
-        System.out.println("Status    : " + found.getStatus());
-        System.out.println("----------------------------------");
+        System.out.println("\n" + W);
+        System.out.println("                                             APPLICATION STATUS");
+        System.out.println(W);
+        System.out.printf("  %-16s : %s%n", "Name",      found.getFullName());
+        System.out.printf("  %-16s : %s%n", "Programme", found.getProgramme());
+        System.out.printf("  %-16s : %s%n", "Intake",    found.getIntake());
+        System.out.printf("  %-16s : %s%n", "Status",    found.getStatus());
+        System.out.println(W);
 
         if ("APPROVED".equalsIgnoreCase(found.getStatus())) {
             Student student = findStudentByName(found.getFullName());
             if (student != null) {
-                System.out.println("\nCongratulations! Your login credentials:");
-                System.out.println("------------------------------------------");
-                System.out.printf( "Student ID    : %s%n", student.getStudentId());
-                System.out.printf( "Inst. Email   : %s%n", student.getEmail());
-                System.out.printf( "Temp Password : %s%n", "Temp@123");
-                System.out.println("------------------------------------------\n");
+                System.out.println("\n  Congratulations! Your login credentials:");
+                System.out.println(D);
+                System.out.printf("  %-16s : %s%n", "Student ID",    student.getStudentId());
+                System.out.printf("  %-16s : %s%n", "Inst. Email",   student.getEmail());
+                System.out.printf("  %-16s : %s%n", "Temp Password", "Temp@123");
+                System.out.println(D + "\n");
             }
         } else if ("REJECTED".equalsIgnoreCase(found.getStatus())) {
-            System.out.println("\n  Your application was not accepted because of the requirement.");
-            System.out.println("  Please contact the admission office for more info..\n");
+            System.out.println("\n  [X] Your application was not accepted.");
+            System.out.println("      Please contact the admission office for more information.\n");
         } else {
-            System.out.println("\nYour application is under review. Please check back later.\n");
+            System.out.println("\n  Your application is under review. Please check back later.\n");
         }
     }
 
@@ -310,24 +302,26 @@ public class ApplicantModule {
     }
 
     // ---------------------------------------------------------------
-    // ENTRY QUALIFICATION SELECTION — retry until valid
+    // QUALIFICATION SELECTION  (0 = back)
     // ---------------------------------------------------------------
     private static String selectQualification(Scanner scanner) {
+        System.out.println("\n" + D);
+        System.out.println("  SELECT ENTRY QUALIFICATION  (0 = back to main menu)");
+        System.out.println(D);
+        for (int i = 0; i < QUALIFICATIONS.length; i++) {
+            System.out.printf("  %d. %s%n", i + 1, QUALIFICATIONS[i]);
+        }
+        System.out.println(D);
         while (true) {
-            System.out.println("\nSelect Entry Qualification:");
-            for (int i = 0; i < QUALIFICATIONS.length; i++) {
-                System.out.println((i + 1) + ". " + QUALIFICATIONS[i]);
-            }
-            System.out.print("Choice: ");
+            System.out.print(">> Choice: ");
+            String raw = scanner.nextLine().trim();
+            if (raw.equals("0")) { System.out.println("  Returning to main menu.\n"); return null; }
             try {
-                int choice = Integer.parseInt(scanner.nextLine().trim());
-                if (choice >= 1 && choice <= QUALIFICATIONS.length) {
-                    return QUALIFICATIONS[choice - 1];
-                }
-            } catch (NumberFormatException e) {
-                // fall through to error
-            }
-            System.out.println("  X Invalid choice. Please enter a number between 1 and " + QUALIFICATIONS.length + ".");
+                int choice = Integer.parseInt(raw);
+                if (choice >= 1 && choice <= QUALIFICATIONS.length) return QUALIFICATIONS[choice - 1];
+            } catch (NumberFormatException ignored) {}
+            System.out.println("  [X] Invalid choice. Please enter a number between 1 and "
+                    + QUALIFICATIONS.length + " only.");
         }
     }
 }
