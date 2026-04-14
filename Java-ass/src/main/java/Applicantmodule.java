@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Applicantmodule {
+public class ApplicantModule {
 
     public static ArrayList<Applicant> applicantList = new ArrayList<>();
 

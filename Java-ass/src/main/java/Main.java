@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Applicantmodule.loadFromFile();
+        ApplicantModule.loadFromFile();
         StudentStore.loadFromFile();   // must load before tickets
         TicketStore.loadFromFile();    // restores tickets into student lists too
         StaffModule.ensurePrimaryAssignment(); // legacy rows: set Handled by from category
@@ -18,10 +18,10 @@ public class Main {
 
             switch (input) {
                 case "1":
-                    Applicantmodule.register(scanner);
+                    ApplicantModule.register(scanner);
                     break;
                 case "2":
-                    Applicantmodule.checkApplicationStatus(scanner);
+                    ApplicantModule.checkApplicationStatus(scanner);
                     break;
                 case "3":
                     LoginModule.login(scanner);

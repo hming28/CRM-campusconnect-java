@@ -87,7 +87,7 @@ public class ManagerModule {
     // 1. VIEW PENDING APPLICATIONS  (approve / reject inline)
     // ---------------------------------------------------------------
     private static void viewPendingApplications(Scanner scanner) {
-        List<Applicant> pending = Applicantmodule.applicantList.stream()
+        List<Applicant> pending = ApplicantModule.applicantList.stream()
                 .filter(a -> "PENDING".equalsIgnoreCase(a.getStatus()))
                 .collect(Collectors.toList());
 
@@ -148,7 +148,7 @@ public class ManagerModule {
                 }
 
                 selected.setStatus("APPROVED");
-                Applicantmodule.saveToFile();
+                ApplicantModule.saveToFile();
 
                 // Convert approved applicant → Student
                 String studentId   = StudentStore.generateStudentId();
@@ -176,7 +176,7 @@ public class ManagerModule {
             }
             case "2":
                 selected.setStatus("REJECTED");
-                Applicantmodule.saveToFile();
+                ApplicantModule.saveToFile();
                 System.out.println("\nApplication Rejected for " + selected.getFullName() + ".\n");
                 break;
             default:
@@ -387,14 +387,14 @@ public class ManagerModule {
                 .orElse(0);
 
         // Application stats
-        int appReceived = Applicantmodule.applicantList.size();
-        int appApproved = (int) Applicantmodule.applicantList.stream()
+        int appReceived = ApplicantModule.applicantList.size();
+        int appApproved = (int) ApplicantModule.applicantList.stream()
                 .filter(a -> "APPROVED".equalsIgnoreCase(a.getStatus()))
                 .count();
-        int appRejected = (int) Applicantmodule.applicantList.stream()
+        int appRejected = (int) ApplicantModule.applicantList.stream()
                 .filter(a -> "REJECTED".equalsIgnoreCase(a.getStatus()))
                 .count();
-        int appPending  = (int) Applicantmodule.applicantList.stream()
+        int appPending  = (int) ApplicantModule.applicantList.stream()
                 .filter(a -> "PENDING".equalsIgnoreCase(a.getStatus()))
                 .count();
 
