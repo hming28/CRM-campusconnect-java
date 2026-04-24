@@ -1,0 +1,10 @@
+Goh Jian Hao|jianhaogoh@gmail.com|Gohjianhao123|May/June 2026|Diploma|Diploma in Data Science|SPM|APPROVED|2026-04-14
+Lee Hao Ming|haominglee@gmail.com|Leehaoming123|Sept/Nov 2026|Diploma|Diploma in Business Administration|SPM|APPROVED|2026-04-14
+Chai Xiang Le|xianglechai@gmail.com|Chaixiangle123|Sept/Nov 2026|Diploma|Diploma in Data Science|SPM|APPROVED|2026-04-14
+Lam Fu Kai|fukailam@gmail.com|Lamfukai123|May/June 2026|Bachelor|Bachelor of Marketing|STPM|APPROVED|2026-04-14
+Low Li Ping|lipinglow@gmail.com|Lowliping123|Sept/Nov 2026|Bachelor|Bachelor of Software Engineering|Foundation|APPROVED|2026-04-14
+James|jamespan@gmail.com|Jamespan123|Sept/Nov 2026|Bachelor|Bachelor of Early Childhood Education|STPM|APPROVED|2026-04-14
+Ali|ali@gmail.com|Aliahmad123|Sept/Nov 2026|Bachelor|Bachelor of Banking and Finance|Diploma|APPROVED|2026-04-14
+Kwok Xun Ping|xunping@gmail.com|Kwokxunping123|May/June 2026|Bachelor|Bachelor of Accounting|STPM|APPROVED|2026-04-14
+Look Kah Weng|kahwenglook@gmail.com|Lookkahweng123|May/June 2026|Bachelor|Bachelor of Business Administration|Diploma|APPROVED|2026-04-14
+Gladys Lee|gladys@gmail.com|Gladyslee123|May/June 2026|Bachelor|Bachelor of Data Science|STPM|APPROVED|2026-04-14

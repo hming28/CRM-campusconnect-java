@@ -1,0 +1,187 @@
+Ticket ID     : T0001
+Student ID    : 2600001
+Title         : Wifi problem
+Category      : IT
+Priority      : High
+Description   : Wifi very slow
+Status        : In progress
+Handled by    : ST2001
+Staff name    : Adam Lee
+Response      : Received. I will solve it soon.
+Reassignment  : 
+Rating        : 
+Feedback      : 
+Created date  : 2026-04-15
+Resolved date : 
+--------------------------------
+
+Ticket ID     : T0002
+Student ID    : 2600002
+Title         : Late announcement
+Category      : Academic
+Priority      : High
+Description   : Lecturer cancel class in last-minute. It makes me frustrated.
+Status        : Pending
+Handled by    : ST2003
+Staff name    : Daniel Wong
+Response      : 
+Reassignment  : 
+Rating        : 
+Feedback      : 
+Created date  : 2026-04-15
+Resolved date : 
+--------------------------------
+
+Ticket ID     : T0003
+Student ID    : 2600003
+Title         : Lecturer bad attitude
+Category      : Academic
+Priority      : High
+Description   : Lecturer opens Youtube to teach the students. She just sit in front and follow the slides to teach.
+Status        : Pending
+Handled by    : ST2003
+Staff name    : Daniel Wong
+Response      : 
+Reassignment  : 
+Rating        : 
+Feedback      : 
+Created date  : 2026-04-15
+Resolved date : 
+--------------------------------
+
+Ticket ID     : T0004
+Student ID    : 2600004
+Title         : Food issue
+Category      : Food & Beverage
+Priority      : Medium
+Description   : The egg contains durian smell.
+Status        : Pending
+Handled by    : ST2005
+Staff name    : Kevin Lim
+Response      : 
+Reassignment  : 
+Rating        : 
+Feedback      : 
+Created date  : 2026-04-15
+Resolved date : 
+--------------------------------
+
+Ticket ID     : T0005
+Student ID    : 2600005
+Title         : Computer lag
+Category      : IT
+Priority      : Medium
+Description   : There are a few computers inside Citc very lag. I cant use at all.
+Status        : Pending
+Handled by    : ST2001
+Staff name    : Adam Lee
+Response      : 
+Reassignment  : 
+Rating        : 
+Feedback      : 
+Created date  : 2026-04-15
+Resolved date : 
+--------------------------------
+
+Ticket ID     : T0006
+Student ID    : 2600006
+Title         : Drinks too sweet
+Category      : Food & Beverage
+Priority      : Low
+Description   : The drinks that sell in Red Bricks are very sweet. It is unhealthy for us.
+Status        : Closed
+Handled by    : ST2005
+Staff name    : Kevin Lim
+Response      : Solved. I have told the staff at the Red Bricks.
+Reassignment  : 
+Rating        : 5
+Feedback      : Thanks.
+Created date  : 2026-04-15
+Resolved date : 2026-04-15
+--------------------------------
+
+Ticket ID     : T0007
+Student ID    : 2600007
+Title         : Cleanliess issue
+Category      : Hostel
+Priority      : Medium
+Description   : The shared toilets are very dirty and smelly most of the time.
+Status        : Closed
+Handled by    : ST2002
+Staff name    : Sarah Tan
+Response      : Solved. Thank you for reporting the problem.
+Reassignment  : 
+Rating        : 4
+Feedback      : Good.
+Created date  : 2026-04-15
+Resolved date : 2026-04-15
+--------------------------------
+
+Ticket ID     : T0008
+Student ID    : 2600008
+Title         : Noise and disturbance
+Category      : Hostel
+Priority      : Medium
+Description   : Loud roommates or neighbours. It makes me difficult concentrate and sleeping.
+Status        : Pending
+Handled by    : ST2002
+Staff name    : Sarah Tan
+Response      : 
+Reassignment  : 
+Rating        : 
+Feedback      : 
+Created date  : 2026-04-15
+Resolved date : 
+--------------------------------
+
+Ticket ID     : T0009
+Student ID    : 2600009
+Title         : Broken facility
+Category      : Facility
+Priority      : Low
+Description   : The facility are broken such as the chairs and tables.
+Status        : Pending
+Handled by    : ST2004
+Staff name    : Aisha Rahman
+Response      : 
+Reassignment  : 
+Rating        : 
+Feedback      : 
+Created date  : 2026-04-15
+Resolved date : 
+--------------------------------
+
+Ticket ID     : T0010
+Student ID    : 2600010
+Title         : Limited computer
+Category      : Facility
+Priority      : Low
+Description   : There is not enough computers for students at the citc.
+Status        : Pending
+Handled by    : ST2004
+Staff name    : Aisha Rahman
+Response      : 
+Reassignment  : 
+Rating        : 
+Feedback      : 
+Created date  : 2026-04-15
+Resolved date : 
+--------------------------------
+
+Ticket ID     : T0011
+Student ID    : 2600001
+Title         : Road issue
+Category      : Food & Beverage
+Priority      : Low
+Description   : Road in TARUMT is broken.
+Status        : Reassignment Requested
+Handled by    : ST2005
+Staff name    : Kevin Lim
+Response      : 
+Reassignment  : Not in my category
+Rating        : 
+Feedback      : 
+Created date  : 2026-04-16
+Resolved date : 
+--------------------------------
+

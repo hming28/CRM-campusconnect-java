@@ -1,0 +1,10 @@
+2600001|Goh Jian Hao|Jianhao123|gohjh-wp26@student.tarc.edu.my|Diploma in Data Science|false|2026-04-15
+2600002|Lee Hao Ming|Leehaoming123|leehm-wp26@student.tarc.edu.my|Diploma in Business Administration|false|2026-04-15
+2600003|Chai Xiang Le|Chaixiangle123|chaixl-wp26@student.tarc.edu.my|Diploma in Data Science|false|2026-04-15
+2600004|Lam Fu Kai|Lamfukai123|lamfk-wp26@student.tarc.edu.my|Bachelor of Marketing|false|2026-04-15
+2600005|Low Li Ping|Lowliping123|lowlp-wp26@student.tarc.edu.my|Bachelor of Software Engineering|false|2026-04-15
+2600006|James|Jamespan123|james-wp26@student.tarc.edu.my|Bachelor of Early Childhood Education|false|2026-04-15
+2600007|Ali|Aliahmad123|ali-wp26@student.tarc.edu.my|Bachelor of Banking and Finance|false|2026-04-15
+2600008|Kwok Xun Ping|Kwokxunping123|kwokxp-wp26@student.tarc.edu.my|Bachelor of Accounting|false|2026-04-15
+2600009|Look Kah Weng|Lookkahweng123|lookkw-wp26@student.tarc.edu.my|Bachelor of Business Administration|false|2026-04-15
+2600010|Gladys Lee|Gladyslee123|gladysl-wp26@student.tarc.edu.my|Bachelor of Data Science|false|2026-04-15
