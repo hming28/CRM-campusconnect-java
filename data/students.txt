@@ -1,5 +1,0 @@
-2600001|Chai Xiang Le|Chaixl123|chaixl-wp26@student.tarc.edu.my|Diploma in Accounting|false
-2600002|Lam Fu Kai|Temp@123|lamfk-wp26@student.tarc.edu.my|Bachelor of Banking and Finance|true
-2600003|Goh Jian Hao|GohJianHao123|gohjh-wp26@student.tarc.edu.my|Diploma in Software Engineering|false
-2600004|Low Li Ping|Liping123456|lowlp-wp26@student.tarc.edu.my|Bachelor of Marketing|false
-2600005|Lee Hao Ming|Temp@123|leehm-wp26@student.tarc.edu.my|Diploma in Software Engineering|true
